@@ -1,0 +1,19 @@
+##Follow these steps
+
+apt-get install -y libjansson-dev libmagic-dev wget git automake libtool make gcc flex bison nano
+
+cd /tmp 
+wget https://github.com/plusvic/yara/archive/v3.4.0.tar.gz
+tar -xvf v3.4.0.tar.gz
+cd yara-3.4.0/
+./bootstrap.sh
+./configure --enable-cuckoo --enable-magic
+make 
+make install
+cd ..
+git clone --recursive https://github.com/VirusTotal/yara-python
+cd yara-python
+python setup.py build
+python setup.py install
+
+
